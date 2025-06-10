@@ -1,0 +1,47 @@
+Galdora Landing - Next.js React Landing Page
+├── src/
+│   ├── app/
+│   │   ├── page.tsx (Aurora Background + CV Converter + 3-Schritt-Prozess)
+│   │   ├── layout.tsx (Root Layout)
+│   │   └── globals.css (Globale Styles)
+│   ├── components/
+│   │   └── ui/
+│   │       ├── Button.tsx (Wiederverwendbare Button-Komponente)
+│   │       ├── SocialLinks.tsx (Social Media Links - Instagram korrigiert)
+│   │       ├── PartnersSlideshow.tsx (Partner-Carousel)
+│   │       ├── ValueCard.tsx (Unternehmenswerte-Karten)
+│   │       └── aurora-background.tsx (Aurora Lichteffekt-Komponente)
+│   └── lib/
+│       └── utils.ts (Utility-Funktionen)
+├── public/
+│   ├── Galdora-logo-alt.png (Firmenlogo)
+│   ├── AZAV-Logo.png (Zertifizierung)
+│   └── ... (weitere Assets)
+├── context/
+│   ├── project-structure (Diese Datei)
+│   ├── summary-10-06-11.md (Erstes Summary)
+│   └── summary-10-06-12.md (Update Summary)
+├── cursor/
+│   └── rules/ (Cursor Regeln)
+├── tailwind.config.ts (Tailwind + Aurora Animation)
+├── package.json (inkl. framer-motion)
+├── tsconfig.json (TypeScript Konfiguration)
+├── next.config.ts (Next.js Konfiguration)
+├── eslint.config.mjs (ESLint Konfiguration)
+├── run.sh (Startskript für Development Server)
+└── README.md (Projektdokumentation)
+
+Features:
+- Next.js 15 mit App Router
+- Framer Motion für Animationen
+- Aurora Background mit 60s Animation
+- CV Converter Integration (galdora.streamlit.app)
+- 3-Schritt Bewerberprozess-Visualisierung
+- Logo Integration (Header + Footer)
+- Instagram Link korrigiert (galdora_gmbh)
+- Glasmorphism UI Design
+- Gradient Buttons mit Hover-Effekten
+- TypeScript für Type Safety
+- Tailwind CSS + Custom Animations
+- Responsive Design
+- Mobile-optimiert
