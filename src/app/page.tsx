@@ -19,30 +19,16 @@ export default function Home() {
       <AuroraBackground className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 relative">
         {/* Header */}
         <header className="absolute top-0 left-0 right-0 z-10">
-          <nav className="container mx-auto px-6 py-8">
-            <div className="flex items-center justify-between">
-              {/* Logo */}
-              <div className="flex items-center space-x-4">
-                <Image
-                  src="/Galdora Logo.png"
-                  alt="Galdora Logo"
-                  width={70}
-                  height={70}
-                  className="h-16 w-auto"
-                />
-                <div className="text-4xl font-bold text-white">
-                  Galdora
-                </div>
-              </div>
-              
-              {/* Navigation */}
-              <div className="hidden md:flex items-center space-x-8">
+          <nav className="container mx-auto px-4 md:px-6 py-6 md:py-8">
+            <div className="flex items-center justify-end">
+              {/* Navigation - nur rechts ausgerichtet */}
+              <div className="flex items-center space-x-4 md:space-x-8">
                 <SocialLinks />
                 <Link 
                   href="https://www.galdora.de" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/80 hover:text-white transition-colors duration-300"
+                  className="text-white/80 hover:text-white transition-colors duration-300 text-sm md:text-base"
                 >
                   Website
                 </Link>
@@ -60,24 +46,23 @@ export default function Home() {
             duration: 0.8,
             ease: "easeInOut",
           }}
-          className="relative flex flex-col gap-4 items-center justify-center px-4 h-screen"
+          className="relative flex flex-col gap-4 items-center justify-center px-4 h-screen pt-20"
         >
           <div className="container mx-auto text-center">
             <div className="max-w-5xl mx-auto">
               {/* Main Heading */}
-              <div className="flex flex-col lg:flex-row items-center justify-center gap-8 mb-8">
+              <div className="flex flex-col items-center justify-center gap-6 md:gap-8 mb-8">
                 <div className="flex-shrink-0">
                   <Image
                     src="/Galdora Logo.png"
                     alt="Galdora Logo"
                     width={160}
                     height={160}
-                    className="h-32 lg:h-40 w-auto"
+                    className="h-24 md:h-32 lg:h-40 w-auto"
                   />
                 </div>
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight text-center lg:text-left">
-                  Personalmanagement
-                  <br />
+                <h1 className="text-3xl md:text-5xl lg:text-7xl xl:text-8xl font-bold text-white leading-tight text-center">
+                  <span className="block mb-2">Personalmanagement</span>
                   <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                     neu gedacht
                   </span>
@@ -85,25 +70,25 @@ export default function Home() {
               </div>
 
               {/* Subtitle */}
-              <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 md:mb-12 max-w-3xl mx-auto leading-relaxed">
                 Persönliche Beratung trifft auf moderne Technologie
               </p>
 
               {/* CTA Button */}
-              <div className="flex flex-col gap-4 mb-16">
+              <div className="flex flex-col gap-4 mb-12 md:mb-16">
                 <Link 
                   href="https://galdora.de/kontakt" 
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Button size="lg" className="w-full">
+                  <Button size="lg" className="w-full max-w-md mx-auto">
                     Unsere originale Website
                   </Button>
                 </Link>
               </div>
 
               {/* Location Info */}
-              <div className="text-gray-400 text-lg">
+              <div className="text-gray-400 text-base md:text-lg">
                 Mönchengladbach • Volksgartenstr. 85-89
               </div>
             </div>
