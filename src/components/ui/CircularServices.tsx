@@ -12,7 +12,7 @@ import { motion, AnimatePresence } from "framer-motion";
 interface Service {
   title: string;
   description: string;
-  icon: JSX.Element;
+  icon: React.ReactElement;
   shortDesc: string;
   bgColor: string;
   iconColor: string;
@@ -36,8 +36,8 @@ function calculateGap(width: number) {
 export const CircularServices = ({
   autoplay = true,
 }: CircularServicesProps) => {
-  // Services data
-  const services: Service[] = [
+  // Services data wrapped in useMemo
+  const services: Service[] = useMemo(() => [
     {
       title: "Personalvermittlung",
       description: "Direktvermittlung qualifizierter Fachkräfte in Festanstellung. Wir finden die perfekte Besetzung für Ihre offenen Positionen.",
@@ -110,18 +110,16 @@ export const CircularServices = ({
         </svg>
       ),
     },
-  ];
+  ], []);
 
   // State
   const [activeIndex, setActiveIndex] = useState(0);
-  const [hoverPrev, setHoverPrev] = useState(false);
-  const [hoverNext, setHoverNext] = useState(false);
   const [containerWidth, setContainerWidth] = useState(1200);
 
   const serviceContainerRef = useRef<HTMLDivElement>(null);
   const autoplayIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  const servicesLength = useMemo(() => services.length, []);
+  const servicesLength = useMemo(() => services.length, [services.length]);
   const activeService = useMemo(
     () => services[activeIndex],
     [activeIndex, services]
@@ -151,16 +149,6 @@ export const CircularServices = ({
     };
   }, [autoplay, servicesLength]);
 
-  // Keyboard navigation
-  useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft") handlePrev();
-      if (e.key === "ArrowRight") handleNext();
-    };
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-  }, [activeIndex, servicesLength]);
-
   // Navigation handlers
   const handleNext = useCallback(() => {
     setActiveIndex((prev) => (prev + 1) % servicesLength);
@@ -171,6 +159,16 @@ export const CircularServices = ({
     setActiveIndex((prev) => (prev - 1 + servicesLength) % servicesLength);
     if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
   }, [servicesLength]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") handlePrev();
+      if (e.key === "ArrowRight") handleNext();
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [handleNext, handlePrev]);
 
   // Compute transforms for each service card
   function getServiceStyle(index: number): React.CSSProperties {
@@ -296,8 +294,6 @@ export const CircularServices = ({
             <button
               className="w-12 h-12 rounded-full bg-slate-800 hover:bg-blue-600 flex items-center justify-center cursor-pointer transition-all duration-300 border border-white/10"
               onClick={handlePrev}
-              onMouseEnter={() => setHoverPrev(true)}
-              onMouseLeave={() => setHoverPrev(false)}
               aria-label="Previous service"
             >
               <FaArrowLeft size={20} className="text-white" />
@@ -305,8 +301,6 @@ export const CircularServices = ({
             <button
               className="w-12 h-12 rounded-full bg-slate-800 hover:bg-blue-600 flex items-center justify-center cursor-pointer transition-all duration-300 border border-white/10"
               onClick={handleNext}
-              onMouseEnter={() => setHoverNext(true)}
-              onMouseLeave={() => setHoverNext(false)}
               aria-label="Next service"
             >
               <FaArrowRight size={20} className="text-white" />

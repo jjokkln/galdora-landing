@@ -8,8 +8,7 @@ import { SocialLinks } from "@/components/ui/SocialLinks";
 import { PartnersSlideshow } from "@/components/ui/PartnersSlideshow";
 import { ValueCard } from "@/components/ui/ValueCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
-import { FadeInUp, FadeInDown, FadeInLeft, FadeInRight } from "@/components/ui/scroll-animation";
-import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
+import { FadeInUp, FadeInLeft, FadeInRight } from "@/components/ui/scroll-animation";
 import { OfficeSlideshow } from "@/components/ui/OfficeSlideshow";
 import { CircularServices } from "@/components/ui/CircularServices";
 
@@ -393,8 +392,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-
 
          {/* Values Section */}
          <section className="py-24">
